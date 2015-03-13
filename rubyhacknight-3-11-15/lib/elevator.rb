@@ -54,14 +54,14 @@ class Elevator
   end
 
   def tick
-    if target_floor == current_floor
+    if doors_open?
+      close_doors
+    elsif target_floor == current_floor
       open_doors
       @target_floor = nil
     elsif stops.include? current_floor
       open_doors
       stops.delete current_floor
-    elsif doors_open?
-      close_doors
     elsif target_floor
       move_in_target_direction
     end
