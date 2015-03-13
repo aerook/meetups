@@ -34,7 +34,6 @@ class Building
   def assign_open_requests
     requests.each do |floor_num, direction|
       request_filled = false
-      require 'pry'; binding.pry
       if elevator_on_floor = elevator_on_floor?(floor_num)
         if elevator_on_floor.direction == direction || elevator_on_floor.direction.nil?
           elevator_on_floor.go_to_floor floor_num
