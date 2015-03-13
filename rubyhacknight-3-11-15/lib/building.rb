@@ -48,7 +48,7 @@ class Building
 
   private
 
-  def assign_elevator
+  def assign_elevator(floor_num, direction)
     if elevator_en_route = elevators_moving_to?(floor_num, direction)
       elevator_en_route.stop_at(floor_num)
       return true
@@ -79,7 +79,6 @@ class Building
   end
 
   def valid_request?(floor, direction)
-    require 'pry'; binding.pry
     if floor.floor_number == @top_floor && direction == :up
       return false
     end
